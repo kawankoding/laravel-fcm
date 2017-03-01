@@ -1,0 +1,18 @@
+{
+    "name" : "kawankoding/fcm",
+    "description" : "A package to send Firebase notification cross Laravel Application",
+    "authors" : [
+        {
+            "name" : "Muhammad Amirul Ihsan",
+            "email" : "muh.amirul.ihsan@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "Kawankoding\\Fcm\\" : "src/"
+        },
+        "files" : [
+            "src/Kawankoding/Fcm/functions.php"
+        ]
+    }
+}

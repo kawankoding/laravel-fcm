@@ -44,7 +44,7 @@ return [
 
     /*
     * Your Fcm Server Key
-    * Change yo yours
+    * Change to yours
     */
 
     'server_key' => '',
@@ -57,6 +57,7 @@ return [
 If You want to send a FCM with just notification parameter, this is an example of usage sending a FCM with only data parameter :
 ```php
 fcm()
+    ->to($recipients)
     ->data([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
@@ -67,6 +68,7 @@ fcm()
 If You want to send a FCM with just notification parameter,this is an example of usage sending a FCM with only notification parameter :
 ```php
 fcm()
+    ->to($recipients)
     ->notification([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
@@ -77,6 +79,7 @@ fcm()
 If You want to send a FCM with both data & notification parameter, this is an example of usage sending a FCM with both data & notification parameter :
 ```php
 fcm()
+    ->to($recipients)
     ->data([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',

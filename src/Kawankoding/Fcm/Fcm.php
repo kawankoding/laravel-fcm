@@ -33,7 +33,7 @@ class Fcm
         return $this;
     }
 
-    public function push()
+    public function send()
     {
         $fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
 

@@ -57,29 +57,29 @@ return [
 If You want to send a FCM with just notification parameter, this is an example of usage sending a FCM with only data parameter :
 ```php
 fcm()
-    ->to($recipients)
+    ->to($recipients) // $recipients must an array
     ->data([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
     ])
-    ->push();
+    ->send();
 ```
 
 If You want to send a FCM with just notification parameter,this is an example of usage sending a FCM with only notification parameter :
 ```php
 fcm()
-    ->to($recipients)
+    ->to($recipients) // $recipients must an array
     ->notification([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
     ])
-    ->push();
+    ->send();
 ```
 
 If You want to send a FCM with both data & notification parameter, this is an example of usage sending a FCM with both data & notification parameter :
 ```php
 fcm()
-    ->to($recipients)
+    ->to($recipients) // $recipients must an array
     ->data([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
@@ -88,5 +88,5 @@ fcm()
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
     ])
-    ->push();
+    ->send();
 ```

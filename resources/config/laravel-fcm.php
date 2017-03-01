@@ -4,7 +4,8 @@ return [
 
     /**
      * Set your FCM Server Key
+     * Change yo yours
      */
 
-    'server-key' => ''
+    'server_key' => ''
 ];

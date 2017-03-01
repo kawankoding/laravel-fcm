@@ -45,7 +45,7 @@ class Fcm
             'notification' => $this->notification
         ];
 
-        $serverKey = config('laravel-fcm.server-key');
+        $serverKey = config('laravel-fcm.server_key');
 
         $headers = [
             'Authorization:key='.$serverKey,

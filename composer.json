@@ -1,10 +1,11 @@
 {
-    "name" : "kawankoding/fcm",
+    "name" : "kawankoding/laravel-fcm",
     "description" : "A package to send Firebase notification cross Laravel Application",
     "authors" : [
         {
             "name" : "Muhammad Amirul Ihsan",
-            "email" : "muh.amirul.ihsan@gmail.com"
+            "email" : "muh.amirul.ihsan@gmail.com",
+            "website" : "http://kawankoding.com",
         }
     ],
     "autoload" : {

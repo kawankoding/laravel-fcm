@@ -7,7 +7,6 @@
             "email": "muh.amirul.ihsan@gmail.com",
         }
     ],
-    "keywords": ["framework", "laravel", "laravel-fcm", "kawankoding", "push-notification"],
     "autoload" : {
         "psr-4" : {
             "Kawankoding\\Fcm\\" : "src/"

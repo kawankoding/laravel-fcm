@@ -1,6 +1,6 @@
 <?php
 
-namespace Kawankoding\Fcm\Providers;
+namespace Kawankoding\Fcm;
 
 use Illuminate\Support\ServiceProvider;
 use Kawankoding\Fcm\Fcm;

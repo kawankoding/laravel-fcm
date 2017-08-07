@@ -17,7 +17,7 @@ $ composer require kawankoding/laravel-fcm
 
 'Providers' => [
     ...
-    Kawankoding\Fcm\Providers\FcmServiceProvider::class,
+    Kawankoding\Fcm\FcmServiceProvider::class,
 ]
  ```
 
@@ -27,14 +27,14 @@ $ composer require kawankoding/laravel-fcm
 // config/app.php
 'aliases' => [
     ...
-    'Fcm' => Kawankoding\Fcm\Facades\Fcm::class,
+    'Fcm' => Kawankoding\Fcm\Fcm::class,
 ];
 ```
 
 Next, You must publish the config file to define your fcm server key :
 
 ```bash
-php artisan vendor:publish --provider="Kawankoding\Fcm\Providers\FcmServiceProvider"
+php artisan vendor:publish --provider="Kawankoding\Fcm\FcmServiceProvider"
 ```
 
 This is the contents of the published file:

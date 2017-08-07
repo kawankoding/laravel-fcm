@@ -12,7 +12,7 @@
             "Kawankoding\\Fcm\\" : "src/"
         },
         "files" : [
-            "src/Kawankoding/Fcm/helpers.php"
+            "src/helpers.php"
         ]
     }
 }

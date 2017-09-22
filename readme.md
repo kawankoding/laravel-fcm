@@ -27,7 +27,7 @@ $ composer require kawankoding/laravel-fcm
 // config/app.php
 'aliases' => [
     ...
-    'Fcm' => Kawankoding\Fcm\Fcm::class,
+    'Fcm' => Kawankoding\Fcm\FcmFacade::class,
 ];
 ```
 

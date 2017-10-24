@@ -12,7 +12,7 @@ class Fcm
     protected $data;
     protected $notification;
 
-    public function to($recipient)
+    public function to(array $recipient)
     {
         $this->recipient = $recipient;
 

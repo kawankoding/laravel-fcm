@@ -9,7 +9,7 @@
     ],
     "require": {
         "php" : "^5.6|^7.0",
-        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0"
+        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0|~5.5.0"
     },
     "autoload" : {
         "psr-4" : {
@@ -18,5 +18,15 @@
         "files" : [
             "src/helpers.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kawankoding\\Fcm\\FcmServiceProvider"
+            ],
+            "aliases" : {
+                "Fcm": "Kawankoding\\Fcm\\FcmFacade"
+            }
+        }
     }
 }

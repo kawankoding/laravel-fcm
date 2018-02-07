@@ -60,8 +60,8 @@ class Fcm
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, CURL_IPRESOLVE_V4);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
         $result = json_decode(curl_exec($ch));
-		curl_close($ch);
+	curl_close($ch);
         
-		return $result;
+	return $result;
     }
 }

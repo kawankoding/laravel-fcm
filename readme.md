@@ -65,6 +65,17 @@ fcm()
     ->send();
 ```
 
+If You want to send a FCM to topic, use method toTopic($topic) instead to() :
+```php
+fcm()
+    ->toTopic($topic) // $topic must an string (topic name)
+    ->notification([
+        'title' => 'Test FCM',
+        'body' => 'This is a test of FCM',
+    ])
+    ->send();
+```
+
 If You want to send a FCM with just notification parameter,this is an example of usage sending a FCM with only notification parameter :
 ```php
 fcm()

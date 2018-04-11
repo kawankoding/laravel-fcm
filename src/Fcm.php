@@ -9,12 +9,20 @@ namespace Kawankoding\Fcm;
 class Fcm
 {
     protected $recipient;
+    protected $topic;
     protected $data;
     protected $notification;
 
     public function to(array $recipient)
     {
         $this->recipient = $recipient;
+
+        return $this;
+    }
+
+    public function toTopic(string $topic)
+    {
+        $this->topic = $topic;
 
         return $this;
     }
@@ -38,17 +46,22 @@ class Fcm
         $fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
 
         $fields = [
-            'registration_ids' => $this->recipient,
             'content-available' => true,
             'priority' => 'high',
             'data' => $this->data,
             'notification' => $this->notification
         ];
 
+        if ($this->topic) {
+            $fields['to'] = "/topics/" . $this->topic;
+        } else {
+            $fields['registration_ids'] = $this->recipient;
+        }
+
         $serverKey = config('laravel-fcm.server_key');
 
         $headers = [
-            'Authorization:key='.$serverKey,
+            'Authorization:key=' . $serverKey,
             'Content-Type:application/json'
         ];
 
@@ -60,8 +73,8 @@ class Fcm
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, CURL_IPRESOLVE_V4);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
         $result = json_decode(curl_exec($ch));
-	curl_close($ch);
-        
-	return $result;
+        curl_close($ch);
+
+        return $result;
     }
 }

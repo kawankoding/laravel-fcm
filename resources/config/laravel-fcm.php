@@ -7,5 +7,6 @@ return [
      * Change to yours
      */
 
-    'server_key' => ''
+    'server_key' => env('FCM_SERVER_KEY', ''),
+
 ];

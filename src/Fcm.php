@@ -45,17 +45,17 @@ class Fcm
     {
         $fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
 
-        $fields = [
-            'content-available' => true,
+        $payloads = [
+            'content_available' => true,
             'priority' => 'high',
             'data' => $this->data,
             'notification' => $this->notification
         ];
 
         if ($this->topic) {
-            $fields['to'] = "/topics/" . $this->topic;
+            $payloads['to'] = "/topics/{$this->topic}";
         } else {
-            $fields['registration_ids'] = $this->recipient;
+            $payloads['registration_ids'] = $this->recipient;
         }
 
         $serverKey = config('laravel-fcm.server_key');
@@ -71,7 +71,7 @@ class Fcm
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, CURL_IPRESOLVE_V4);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payloads));
         $result = json_decode(curl_exec($ch));
         curl_close($ch);
 

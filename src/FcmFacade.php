@@ -5,7 +5,7 @@ namespace Kawankoding\Fcm;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Fcm
+ * Class FcmFacade
  * @package Kawankoding\Fcm\Facades
  */
 class FcmFacade extends Facade

@@ -1,6 +1,6 @@
 # Laravel FCM
 
-A Simple package that help you send a firebase notification with your laravel applications
+A simple package that help you send a Firebase notification with your Laravel applications
 
 ### Installation
 
@@ -12,32 +12,33 @@ $ composer require kawankoding/laravel-fcm
 
  Next, You must register the service provider :
 
- ``` php
+ ```php
 // config/app.php
 
 'Providers' => [
-    ...
+    // ...
     Kawankoding\Fcm\FcmServiceProvider::class,
 ]
  ```
 
- If you want to make use of the facade you must install it as well:
+ If you want to make use of the facade you must install it as well :
 
 ```php
 // config/app.php
+
 'aliases' => [
-    ...
+    // ...
     'Fcm' => Kawankoding\Fcm\FcmFacade::class,
 ];
 ```
 
-Next, You must publish the config file to define your fcm server key :
+Next, You must publish the config file to define your FCM server key :
 
 ```bash
 php artisan vendor:publish --provider="Kawankoding\Fcm\FcmServiceProvider"
 ```
 
-This is the contents of the published file:
+This is the contents of the published file :
 
 ```php
 return [
@@ -76,7 +77,7 @@ fcm()
     ->send();
 ```
 
-If You want to send a FCM with just notification parameter,this is an example of usage sending a FCM with only notification parameter :
+If You want to send a FCM with just notification parameter, this is an example of usage sending a FCM with only notification parameter :
 ```php
 fcm()
     ->to($recipients) // $recipients must an array

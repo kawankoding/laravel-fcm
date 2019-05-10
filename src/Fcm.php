@@ -8,14 +8,14 @@ namespace Kawankoding\Fcm;
  */
 class Fcm
 {
-    protected $recipient;
+    protected $recipients;
     protected $topic;
     protected $data;
     protected $notification;
 
-    public function to(array $recipient)
+    public function to(array $recipients)
     {
-        $this->recipient = $recipient;
+        $this->recipients = $recipients;
 
         return $this;
     }
@@ -55,14 +55,14 @@ class Fcm
         if ($this->topic) {
             $payloads['to'] = "/topics/{$this->topic}";
         } else {
-            $payloads['registration_ids'] = $this->recipient;
+            $payloads['registration_ids'] = $this->recipients;
         }
 
         $serverKey = config('laravel-fcm.server_key');
 
         $headers = [
-            'Authorization:key=' . $serverKey,
-            'Content-Type:application/json'
+            'Authorization: key=' . $serverKey,
+            'Content-Type: application/json'
         ];
 
         $ch = curl_init();

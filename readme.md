@@ -43,14 +43,21 @@ This is the contents of the published file :
 ```php
 return [
 
-    /*
-    * Your Fcm Server Key
-    * Change to yours
-    */
+    /**
+     * Set your FCM Server Key
+     * Change to yours
+     */
 
-    'server_key' => '',
+    'server_key' => env('FCM_SERVER_KEY', ''),
 
 ];
+```
+
+Set your FCM Server Key in `.env` file :
+```
+APP_NAME="Laravel"
+# ...
+FCM_SERVER_KEY=putYourKeyHere
 ```
 
 ### Usage

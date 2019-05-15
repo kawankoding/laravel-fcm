@@ -12,6 +12,7 @@ class Fcm
     protected $topic;
     protected $data;
     protected $notification;
+    protected $timeToLive = null;
 
     public function to(array $recipients)
     {
@@ -40,6 +41,13 @@ class Fcm
 
         return $this;
     }
+    
+    public function timeToLive(int $timeToLive)
+    {
+        $this->timeToLive = $timeToLive;
+        
+        return $this;
+    }
 
     public function send()
     {
@@ -56,6 +64,10 @@ class Fcm
             $payloads['to'] = "/topics/{$this->topic}";
         } else {
             $payloads['registration_ids'] = $this->recipients;
+        }
+        
+        if ($this->timeToLive !== null && $this->timeToLive >= 0) {
+            $payloads['time_to_live'] = (int) $this->timeToLive;
         }
 
         $serverKey = config('laravel-fcm.server_key');

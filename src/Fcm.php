@@ -12,7 +12,7 @@ class Fcm
     protected $topic;
     protected $data;
     protected $notification;
-    protected $timeToLive = null;
+    protected $timeToLive;
 
     public function to(array $recipients)
     {

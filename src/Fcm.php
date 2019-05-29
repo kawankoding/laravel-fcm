@@ -41,11 +41,18 @@ class Fcm
 
         return $this;
     }
-    
+
     public function timeToLive(int $timeToLive)
     {
+        if ($timeToLive < 0) {
+            $timeToLive = 0; // (0 seconds)
+        }
+        if ($timeToLive > 2419200) {
+            $timeToLive = 2419200; // (28 days)
+        }
+
         $this->timeToLive = $timeToLive;
-        
+
         return $this;
     }
 
@@ -65,7 +72,7 @@ class Fcm
         } else {
             $payloads['registration_ids'] = $this->recipients;
         }
-        
+
         if ($this->timeToLive !== null && $this->timeToLive >= 0) {
             $payloads['time_to_live'] = (int) $this->timeToLive;
         }

@@ -70,7 +70,7 @@ class Fcm
 
         $payloads = [
             'content_available' => true,
-            'priority' => $this->priority,
+            'priority' => $this->priority ?? 'high',
             'data' => $this->data,
             'notification' => $this->notification
         ];

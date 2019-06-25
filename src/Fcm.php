@@ -13,6 +13,7 @@ class Fcm
     protected $data;
     protected $notification;
     protected $timeToLive;
+    protected $priority;
 
     public function to(array $recipients)
     {
@@ -42,6 +43,13 @@ class Fcm
         return $this;
     }
 
+    public function priority(string $priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
     public function timeToLive(int $timeToLive)
     {
         if ($timeToLive < 0) {
@@ -62,7 +70,7 @@ class Fcm
 
         $payloads = [
             'content_available' => true,
-            'priority' => 'high',
+            'priority' => $this->priority,
             'data' => $this->data,
             'notification' => $this->notification
         ];

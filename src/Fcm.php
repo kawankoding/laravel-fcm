@@ -99,7 +99,7 @@ class Fcm
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, CURL_IPRESOLVE_V4);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payloads));
-        $result = json_decode(curl_exec($ch));
+        $result = json_decode(curl_exec($ch), true);
         curl_close($ch);
 
         return $result;

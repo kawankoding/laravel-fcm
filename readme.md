@@ -69,6 +69,7 @@ If You want to send a FCM with just notification parameter, this is an example o
 fcm()
     ->to($recipients) // $recipients must an array
     ->priority('high')
+    ->timeToLive(0)
     ->data([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
@@ -82,6 +83,7 @@ If You want to send a FCM to topic, use method toTopic(\$topic) instead to() :
 fcm()
     ->toTopic($topic) // $topic must an string (topic name)
     ->priority('normal')
+    ->timeToLive(0)
     ->notification([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
@@ -95,6 +97,7 @@ If You want to send a FCM with just notification parameter, this is an example o
 fcm()
     ->to($recipients) // $recipients must an array
     ->priority('high')
+    ->timeToLive(0)
     ->notification([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',
@@ -108,6 +111,7 @@ If You want to send a FCM with both data & notification parameter, this is an ex
 fcm()
     ->to($recipients) // $recipients must an array
     ->priority('normal')
+    ->timeToLive(0)
     ->data([
         'title' => 'Test FCM',
         'body' => 'This is a test of FCM',

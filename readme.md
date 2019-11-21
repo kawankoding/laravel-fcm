@@ -128,7 +128,7 @@ fcm()
 ## Sending different payloads
 
 This packages uses a singleton pattern for the `Fcm` facade and `fcm()` helper.
-If you want to send diffent payloads to Firebase in the same request you have to use use the `Kawankoding\Fcm\Fcm` class directly:
+If you want to send different payloads to Firebase in the same request you have to use use the `Kawankoding\Fcm\Fcm` class directly:
 
 ```php
 use Kawankoding\Fcm\Fcm;

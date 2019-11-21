@@ -122,3 +122,30 @@ fcm()
     ])
     ->send();
 ```
+
+### Notes
+
+## Sending different payloads
+
+This packages uses a singleton pattern for the `Fcm` facade and `fcm()` helper.
+If you want to send diffent payloads to Firebase in the same request you have to use use the `Kawankoding\Fcm\Fcm` class directly:
+
+```php
+use Kawankoding\Fcm\Fcm;
+
+$fcm1 = new Fcm;
+$fcm1->to($recipients)
+    ->data([
+        'title' => 'Test FCM 1',
+        'body' => 'This is a test of FCM 1',
+    ])
+    ->send();
+
+$fcm2 = new Fcm;
+$fcm2->to($recipients)
+    ->notification([
+        'title' => 'Test FCM 2',
+        'body' => 'This is a test of FCM 2',
+    ])
+    ->send();
+```

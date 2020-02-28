@@ -14,13 +14,13 @@ class FcmServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../resources/config/laravel-fcm.php' => config_path('laravel-fcm.php'),
+            __DIR__ . '/../resources/config/laravel-fcm.php' => config_path('laravel-fcm.php'),
         ]);
     }
 
     public function register()
     {
-        $this->app->singleton('fcm', function ($app) {
+        $this->app->bind('fcm', function ($app) {
             return new Fcm();
         });
     }

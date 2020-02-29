@@ -7,7 +7,7 @@ A simple package that help you send a Firebase notification with your Laravel ap
 You can pull the package via composer :
 
 ```bash
-$ composer require kawankoding/laravel-fcm
+$ composer require kawankoding/laravel-fcm "^0.2.0"
 ```
 
 Next, You must register the service provider :

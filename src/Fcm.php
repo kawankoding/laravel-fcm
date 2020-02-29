@@ -8,12 +8,21 @@ namespace Kawankoding\Fcm;
  */
 class Fcm
 {
+    const ENDPOINT = 'https://fcm.googleapis.com/fcm/send';
+
     protected $recipients;
     protected $topic;
     protected $data;
     protected $notification;
     protected $timeToLive;
     protected $priority;
+
+    protected $serverKey;
+
+    public function __construct($serverKey)
+    {
+        $this->serverKey = $serverKey;
+    }
 
     public function to(array $recipients)
     {
@@ -66,8 +75,6 @@ class Fcm
 
     public function send()
     {
-        $fcmEndpoint = 'https://fcm.googleapis.com/fcm/send';
-
         $payloads = [
             'content_available' => true,
             'priority' => $this->priority ?? 'high',
@@ -85,15 +92,13 @@ class Fcm
             $payloads['time_to_live'] = (int) $this->timeToLive;
         }
 
-        $serverKey = config('laravel-fcm.server_key');
-
         $headers = [
-            'Authorization: key=' . $serverKey,
-            'Content-Type: application/json'
+            'Authorization: key=' . $this->serverKey,
+            'Content-Type: application/json',
         ];
 
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $fcmEndpoint);
+        curl_setopt($ch, CURLOPT_URL, self::ENDPOINT);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

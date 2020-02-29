@@ -21,7 +21,9 @@ class FcmServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('fcm', function ($app) {
-            return new Fcm();
+            return new Fcm(
+                config('laravel-fcm.server_key')
+            );
         });
     }
 }

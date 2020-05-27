@@ -10,7 +10,9 @@ You can pull the package via composer :
 $ composer require kawankoding/laravel-fcm "^0.2.0"
 ```
 
-Next, You must register the service provider :
+#### Laravel
+
+You must register the service provider :
 
 ```php
 // config/app.php
@@ -51,6 +53,24 @@ return [
     'server_key' => env('FCM_SERVER_KEY', ''),
 
 ];
+```
+
+#### Lumen
+
+Add the following service provider to the `bootstrap/app.php` file
+```php
+$app->register(Kawankoding\Fcm\FcmServiceProvider::class);
+```
+
+Also copy the [laravel-fcm.php](https://github.com/kawankoding/laravel-fcm/blob/master/resources/config/laravel-fcm.php) config file to `config/laravel-fcm.php`
+
+
+Add the configuration to the `bootstrap/app.php` file
+    *Important:* this needs to be before the registration of the service provider
+```php
+$app->configure('laravel-fcm');
+...
+$app->register(Kawankoding\Fcm\FcmServiceProvider::class);
 ```
 
 Set your FCM Server Key in `.env` file :

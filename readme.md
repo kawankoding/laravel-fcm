@@ -86,8 +86,13 @@ FCM_SERVER_KEY=putYourKeyHere
 If You want to send a FCM with just notification parameter, this is an example of usage sending a FCM with only data parameter :
 
 ```php
+$recipients = [
+    'clKMv.......',
+    'GxQQW.......',
+];
+
 fcm()
-    ->to($recipients) // $recipients must an array
+    ->to($recipients)
     ->priority('high')
     ->timeToLive(0)
     ->data([

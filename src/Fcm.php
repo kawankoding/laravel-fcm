@@ -77,7 +77,7 @@ class Fcm
     {
         $payloads = [
             'content_available' => true,
-            'priority' => $this->priority ?? 'high',
+            'priority' => isset($this->priority) ? $this->priority : 'high',
             'data' => $this->data,
             'notification' => $this->notification
         ];

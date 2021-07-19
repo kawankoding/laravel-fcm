@@ -92,7 +92,7 @@ class Fcm
         
         if(!empty($this->package))
         {
-            $payloads['restricted_package_name'] = $package;
+            $payloads['restricted_package_name'] = $this->package;
         }
 
         if ($this->topic) {

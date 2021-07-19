@@ -16,6 +16,7 @@ class Fcm
     protected $notification;
     protected $timeToLive;
     protected $priority;
+    protected $package;
 
     protected $serverKey;
 
@@ -72,6 +73,13 @@ class Fcm
 
         return $this;
     }
+    
+    public function setPackage($package)
+    {
+        $this->package = $package;
+        
+        return $this;
+    }
 
     public function send()
     {
@@ -81,6 +89,11 @@ class Fcm
             'data' => $this->data,
             'notification' => $this->notification
         ];
+        
+        if(!empty($this->package))
+        {
+            $payloads['restricted_package_name'] = $package;
+        }
 
         if ($this->topic) {
             $payloads['to'] = "/topics/{$this->topic}";

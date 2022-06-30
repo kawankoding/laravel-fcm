@@ -20,6 +20,8 @@ class Fcm
 
     protected $serverKey;
 
+    protected $responseLogEnabled = false;
+
     public function __construct($serverKey)
     {
         $this->serverKey = $serverKey;
@@ -73,11 +75,18 @@ class Fcm
 
         return $this;
     }
-    
+
     public function setPackage($package)
     {
         $this->package = $package;
-        
+
+        return $this;
+    }
+
+    public function enableResponseLog($enable = true)
+    {
+        $this->responseLogEnabled = $enable;
+
         return $this;
     }
 
@@ -117,7 +126,13 @@ class Fcm
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, CURL_IPRESOLVE_V4);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payloads));
-        $result = json_decode(curl_exec($ch), true);
+        $response = curl_exec($ch);
+
+        if ($this->responseLogEnabled) {
+            logger('laravel-fcm', ['response' => $response]);
+        }
+
+        $result = json_decode($response, true);
         curl_close($ch);
 
         return $result;

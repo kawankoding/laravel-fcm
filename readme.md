@@ -147,3 +147,18 @@ fcm()
     ])
     ->send();
 ```
+
+### Logging
+
+To see the original response from Firebase, call `enableResponseLog()` method before calling the `send()` method.
+
+```php
+fcm()
+    ->to($recipients)
+    // ...
+    ->enableResponseLog()
+    ->send();
+
+```
+
+Then you can check the response log in the file `storage/logs/laravel.log`

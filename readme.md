@@ -81,6 +81,26 @@ APP_NAME="Laravel"
 FCM_SERVER_KEY=putYourKeyHere
 ```
 
+
+### Methods Ref
+
+- `->to()`
+
+- `->toTopic()`
+
+- `->data()`
+
+- `->notification()`
+
+- `->priority()`
+
+- `->timeToLive()`
+
+- `->enableResponseLog()`
+
+- `->send()`
+
+
 ### Usage
 
 If You want to send a FCM with just notification parameter, this is an example of usage sending a FCM with only data parameter :
